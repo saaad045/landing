@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter to You 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #c44569;
+            --accent: #ffd6f3;
+            --light: #fff0f6;
+            --dark: #2d1b3d;
+            --glassmorphism: rgba(255, 255, 255, 0.25);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff0f6 0%, #f5e6ff 50%, #ffe6f0 100%);
+            color: #2d1b3d;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .cursor-glow {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.4) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            filter: blur(15px);
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { filter: blur(15px); opacity: 0.6; }
+            50% { filter: blur(20px); opacity: 0.8; }
+        }
+
+        /* SECTION DIVIDERS */
+        .wave-divider {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.1) 100%);
+        }
+
+        svg.wave {
+            width: 100%;
+            height: 100px;
+            display: block;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fff0f6 0%, #fce0f0 50%, #f5e6ff 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400%;
+            height: 400%;
+            background: linear-gradient(45deg, #ffb3d9 0%, #ff6b9d 25%, #c44569 50%, #ff8ec5 75%, #ffb3d9 100%);
+            background-size: 50% 50%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 0.15;
+            top: -100%;
+            left: -100%;
+        }
+
+        @keyframes gradientShift {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(50%, 50%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FLOATING HEARTS */
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .heart svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.6));
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotateZ(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotateZ(20deg);
+                opacity: 0;
+            }
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 10s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 12s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 11s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1.5s; animation-duration: 13s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 0.5s; animation-duration: 11.5s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 2.5s; animation-duration: 12.5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 1.2s; animation-duration: 10.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 3s; animation-duration: 13.5s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 0.8s; animation-duration: 11.2s; }
+
+        /* CTA BUTTON */
+        .cta-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s ease forwards 0.3s;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        .cta-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* APOLOGY SECTION */
+        .apology {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apology::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: moveBackground 20s ease-in-out infinite;
+        }
+
+        @keyframes moveBackground {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20%, 20%); }
+        }
+
+        .apology-card {
+            background: var(--glassmorphism);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 700px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            animation: slideInLeft 1s ease;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .apology-card:hover {
+            transform: rotateX(3deg) rotateY(-5deg);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.3);
+        }
+
+        .apology-card h2 {
+            font-size: 2.5rem;
+            color: #c44569;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .apology-card p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* FLOATING PARTICLES */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ff6b9d, #c44569);
+            border-radius: 50%;
+            animation: floatParticle 20s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-400px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { left: 20%; top: 50%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 40%; top: 60%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 60%; top: 40%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 80%; top: 70%; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 30%; top: 30%; animation-delay: 3s; }
+
+        /* REASONS SECTION */
+        .reasons {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            animation: fadeInDown 1s ease;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reason-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            animation: scaleIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .reason-card:nth-child(1) { animation-delay: 0.1s; }
+        .reason-card:nth-child(2) { animation-delay: 0.2s; }
+        .reason-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .reason-card:hover {
+            transform: translateY(-20px) rotateZ(1deg);
+            border-color: #ff6b9d;
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.3);
+        }
+
+        .reason-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            color: #c44569;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .reason-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* PROMISES SECTION */
+        .promises {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #f5e6ff 100%);
+        }
+
+        .promise-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .promise-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        .promise-card:nth-child(1) { animation-delay: 0.1s; }
+        .promise-card:nth-child(2) { animation-delay: 0.2s; }
+        .promise-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .promise-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(200%); }
+        }
+
+        .promise-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .promise-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .promise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .promise-card h3 {
+            color: #c44569;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .promise-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* LOVE LETTER SECTION */
+        .love-letter {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .letter-container {
+            background: white;
+            border-radius: 15px;
+            padding: 60px;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-left: 5px solid #ff6b9d;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .letter-container::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 80px;
+            color: #ff6b9d;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .letter-content {
+            position: relative;
+            z-index: 2;
+            font-family: 'Palatino', 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .letter-content .typewriter {
+            overflow: hidden;
+            white-space: pre-wrap;
+            animation: typing 4s steps(80, end) 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes typing {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .letter-signed {
+            text-align: right;
+            color: #c44569;
+            font-weight: 600;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease 4.5s forwards;
+            opacity: 0;
+        }
+
+        /* FORGIVE SECTION */
+        .forgive {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #fce0f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .forgive-container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .forgive-container h2 {
+            font-size: 2.8rem;
+            color: #c44569;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .forgive-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .forgive-btn {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        .btn-maybe {
+            background: white;
+            color: #c44569;
+            border: 2px solid #ff6b9d;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+        }
+
+        .btn-maybe:hover {
+            background: #fff0f6;
+            transform: scale(0.95);
+        }
+
+        /* MEMORIES SECTION */
+        .memories {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .memories-timeline {
+            max-width: 900px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff6b9d;
+            animation: slideInRight 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .memory-card:nth-child(1) { animation-delay: 0.1s; }
+        .memory-card:nth-child(2) { animation-delay: 0.2s; }
+        .memory-card:nth-child(3) { animation-delay: 0.3s; }
+        .memory-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .memory-date {
+            color: #ff6b9d;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .memory-title {
+            color: #c44569;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .memory-text {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* FINAL SECTION */
+        .final {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #f5e6ff 50%, #ffe6f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-container {
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .final-container h2 {
+            font-size: 2.8rem;
+            color: #c44569;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .final-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .final-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        footer .heart-float {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .footer-heart-1 { left: 10%; top: 20%; animation-delay: 0s; }
+        .footer-heart-2 { right: 10%; top: 20%; animation-delay: 2s; }
+        .footer-heart-3 { left: 30%; bottom: 20%; animation-delay: 1s; }
+
+        /* CONFETTI */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* SCROLL TRIGGER ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        .scale-in {
+            opacity: 0;
+            animation: scaleIn 0.8s ease forwards;
+        }
+
+        .bounce-in {
+            opacity: 0;
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* CUTE LOVE LANGUAGES SECTION */
+        .love-languages {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #fce0f0 100%);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+        }
+
+        .language-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .language-card:hover {
+            transform: translateY(-15px) rotateZ(2deg);
+            border-color: #ff6b9d;
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.3);
+        }
+
+        .language-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .language-card:hover .language-emoji {
+            transform: scale(1.3) rotateZ(10deg);
+        }
+
+        .language-card h3 {
+            color: #c44569;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .language-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* CUTE QUESTIONS SECTION */
+        .cute-questions {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .questions-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .question-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff6b9d;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .question-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .question-emoji {
+            font-size: 2rem;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .question-text {
+            color: #c44569;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .answer-text {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .question-item.active .answer-text {
+            max-height: 200px;
+        }
+
+        /* QUALITIES SECTION */
+        .qualities {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #f5e6ff 100%);
+        }
+
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .quality-badge {
+            background: white;
+            border-radius: 30px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ff6b9d;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .quality-badge:hover {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.15) rotateZ(-5deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .quality-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #c44569;
+        }
+
+        .quality-badge:hover .quality-text {
+            color: white;
+        }
+
+        /* THINGS I LOVE SECTION */
+        .things-love {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .love-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+        }
+
+        .love-item {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+        }
+
+        .love-item:hover::before {
+            top: -20%;
+            right: -20%;
+        }
+
+        .love-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .love-item-number {
+            color: #ff6b9d;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .love-item-text {
+            color: #c44569;
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            line-height: 1.6;
+        }
+
+        /* WOULD YOU RATHER SECTION */
+        .would-you-rather {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #fce0f0 100%);
+        }
+
+        .rather-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .rather-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .rather-option {
+            background: white;
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .rather-option:hover {
+            border-color: #ff6b9d;
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .rather-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .rather-text {
+            color: #c44569;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .rather-vs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #ff6b9d;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .rather-vs::before,
+        .rather-vs::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+        }
+
+        .rather-vs span {
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .rather-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .rather-vs {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+        }
+
+        /* LETTER WRITING SECTION */
+        .letter-writing {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .letter-prompt-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #ff6b9d;
+        }
+
+        .letter-prompt-container h3 {
+            color: #c44569;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .letter-prompt-text {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .letter-signature {
+            color: #ff6b9d;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
+        /* CUTE COUNTDOWN SECTION */
+        .countdown {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f6 0%, #f5e6ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-container {
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        .countdown-title {
+            font-size: 2.5rem;
+            color: #c44569;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .countdown-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ff6b9d;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            transform: scale(1.1) rotateZ(-3deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        .countdown-item:hover .countdown-number {
+            color: white;
+        }
+
+        .countdown-label {
+            color: #c44569;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .countdown-item:hover .countdown-label {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .apology-card {
+                padding: 40px 20px;
+            }
+
+            .letter-container {
+                padding: 40px 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .button-group {
+                gap: 15px;
+            }
+
+            .forgive-btn {
+                min-width: 160px;
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+
+            .final-container h2 {
+                font-size: 2rem;
+            }
+
+            .letter-prompt-container {
+                padding: 30px 20px;
+            }
+
+            .countdown-items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-size: 2.5rem;
+            color: #c44569;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .modal-content p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        /* SPARKLE ANIMATION */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleAnimation 0.8s ease-out forwards;
+        }
+
+        @keyframes sparkleAnimation {
+            to {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- CURSOR GLOW -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="floating-hearts">
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#ff6b9d" opacity="0.9"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#c44569" opacity="0.8"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#ff6b9d" opacity="0.85"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#c44569" opacity="0.9"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#ff6b9d" opacity="0.8"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#c44569" opacity="0.85"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#ff6b9d" opacity="0.9"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#c44569" opacity="0.8"/></svg></div>
+            <div class="heart"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C 20 70, 10 55, 10 40 C 10 25, 20 15, 30 15 C 40 15, 50 25, 50 25 C 50 25, 60 15, 70 15 C 80 15, 90 25, 90 40 C 90 55, 80 70, 50 85 Z" fill="#ff6b9d" opacity="0.85"/></svg></div>
+        </div>
+        <div class="hero-content">
+            <h1>I Never Want To Lose You 💖</h1>
+            <p>I'm deeply sorry for everything. You mean the world to me, and I can't imagine my life without you. Please give me a chance to make things right. You are my greatest love, my biggest regret, and my sweetest hope.</p>
+            <button class="cta-btn" onclick="scrollToSection('apology')">Please Read This ✨</button>
+        </div>
+    </section>
+
+    <!-- APOLOGY SECTION -->
+    <section class="apology" id="apology">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="apology-card">
+            <h2>I'm Sorry 💔</h2>
+            <p>I know I messed up, and there's no excuse for my actions. I've had time to reflect, and I realize how much pain I've caused you. You deserved better, and I failed you. But I want you to know that I'm genuinely sorry from the depths of my heart. You are too important to me to lose.</p>
+            <p>Every moment without you feels empty. I miss your smile, your laugh, the way you light up my world. I promise to be better, to listen more, to cherish you more, and to never take you for granted again.</p>
+            <p>I know sorry isn't enough, but I'm willing to do whatever it takes to earn back your trust and rebuild what I've broken. You are my everything, and I will spend the rest of my life making this right.</p>
+        </div>
+    </section>
+
+    <!-- REASONS SECTION -->
+    <section class="reasons">
+        <h2 class="section-title">Why You're So Special ✨</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="reason-icon">💕</div>
+                <h3>Your Beautiful Heart</h3>
+                <p>You have the kindest, most compassionate heart. The way you care about everyone around you makes you absolutely extraordinary and irreplaceable to me.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">😊</div>
+                <h3>Your Infectious Smile</h3>
+                <p>Your smile brightens even my darkest days. It's like sunshine breaking through the clouds, and I never want to live in darkness again.</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🌟</div>
+                <h3>Your Amazing Spirit</h3>
+                <p>You inspire me to be better every single day. Your strength, resilience, and beauty make me believe in magic and miracles again.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMISES SECTION -->
+    <section class="promises">
+        <h2 class="section-title">I Promise You 🤝</h2>
+        <div class="promise-cards">
+            <div class="promise-card">
+                <div class="promise-content">
+                    <div class="promise-icon">💭</div>
+                    <h3>To Listen</h3>
+                    <p>I promise to truly listen to what you say, to understand your feelings, and to never dismiss your concerns. Your voice matters deeply to me.</p>
+                </div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-content">
+                    <div class="promise-icon">🫂</div>
+                    <h3>To Cherish You</h3>
+                    <p>I promise to love you fiercely, respect you completely, and cherish every single moment we have together. You are my priority.</p>
+                </div>
+            </div>
+            <div class="promise-card">
+                <div class="promise-content">
+                    <div class="promise-icon">💪</div>
+                    <h3>To Never Give Up</h3>
+                    <p>I promise to never stop fighting for us, for our love, and for our beautiful future together. You are worth fighting for every single day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOVE LETTER SECTION -->
+    <section class="love-letter">
+        <div class="letter-container">
+            <div class="letter-content">
+                <div class="typewriter">My Dearest Love,
+
+There are no words beautiful enough to express how sorry I am and how much you mean to me. You are my greatest blessing and my deepest regret.
+
+I promise to spend the rest of my life making this right.</div>
+            </div>
+            <div class="letter-signed">Always yours,<br>💕</div>
+        </div>
+    </section>
+
+    <!-- FORGIVE SECTION -->
+    <section class="forgive">
+        <div class="forgive-container">
+            <h2>Do You Forgive Me? 💕</h2>
+            <p class="forgive-text">I know I hurt you deeply, and I understand if you're still upset. But I'm begging you to give me another chance. I promise to love you with every fiber of my being.</p>
+            <div class="button-group">
+                <button class="forgive-btn btn-yes" onclick="handleForgiveness(true)">Forgive Me 🥺</button>
+                <button class="forgive-btn btn-maybe" onclick="handleForgiveness(false)">Still Thinking... 😒</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMORIES SECTION -->
+    <section class="memories">
+        <h2 class="section-title">Memories I Treasure 📸</h2>
+        <div class="memories-timeline">
+            <div class="memory-card">
+                <div class="memory-date">First Meeting</div>
+                <div class="memory-title">When Everything Changed</div>
+                <div class="memory-text">The day I met you was the day my heart found its home. Your eyes, your smile, everything about you captivated me instantly.</div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-date">First Date</div>
+                <div class="memory-title">A Night I'll Never Forget</div>
+                <div class="memory-text">Laughing together, talking about our dreams, feeling that magical spark—that moment I knew you were the one I wanted to spend forever with.</div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-date">Perfect Moments</div>
+                <div class="memory-title">Countless Beautiful Days</div>
+                <div class="memory-text">Every moment with you has been a gift. From spontaneous adventures to quiet nights together, every second with you is treasure.</div>
+            </div>
+            <div class="memory-card">
+                <div class="memory-date">My Future</div>
+                <div class="memory-title">Forever With You</div>
+                <div class="memory-text">I can't wait to create a million more memories with you. You're my past, my present, and my forever future.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU MEAN SECTION -->
+    <section class="final">
+        <div class="final-container">
+            <h2>You Mean Everything To Me 💖</h2>
+            <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 30px auto; line-height: 1.8;">You are my soulmate, my best friend, my greatest love. You make me want to be the best version of myself. The thought of losing you breaks my heart into a million pieces.</p>
+            <button class="final-btn" onclick="triggerFinalSurprise()">One Last Thing 💌</button>
+        </div>
+    </section>
+
+    <!-- LOVE LANGUAGES SECTION -->
+    <section class="love-languages">
+        <h2 class="section-title fade-in">My Love Languages For You 💬</h2>
+        <div class="languages-grid">
+            <div class="language-card fade-in" style="animation-delay: 0.1s;">
+                <div class="language-emoji">💭</div>
+                <h3>Words of Affirmation</h3>
+                <p>Every day I want to remind you how incredible you are, how much you mean to me, and how lucky I am to have you.</p>
+            </div>
+            <div class="language-card fade-in" style="animation-delay: 0.2s;">
+                <div class="language-emoji">🤲</div>
+                <h3>Acts of Service</h3>
+                <p>I'll always be there to support you, help you, and do little things to make your life easier and brighter.</p>
+            </div>
+            <div class="language-card fade-in" style="animation-delay: 0.3s;">
+                <div class="language-emoji">🎁</div>
+                <h3>Receiving Gifts</h3>
+                <p>Small surprises to show you I'm thinking about you and that every moment with you is a precious gift to me.</p>
+            </div>
+            <div class="language-card fade-in" style="animation-delay: 0.4s;">
+                <div class="language-emoji">⏰</div>
+                <h3>Quality Time</h3>
+                <p>My favorite thing is being with you. Every second in your presence is a treasure I'll never take for granted.</p>
+            </div>
+            <div class="language-card fade-in" style="animation-delay: 0.5s;">
+                <div class="language-emoji">🫂</div>
+                <h3>Physical Touch</h3>
+                <p>Holding your hand, hugging you tight, these simple touches mean the world to me and keep us connected.</p>
+            </div>
+            <div class="language-card fade-in" style="animation-delay: 0.6s;">
+                <div class="language-emoji">💫</div>
+                <h3>My Love</h3>
+                <p>I love you completely, authentically, and forever. You are my everything, today and always.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUTE QUESTIONS SECTION -->
+    <section class="cute-questions">
+        <h2 class="section-title fade-in">Questions About Us 💕</h2>
+        <div class="questions-container">
+            <div class="question-item fade-in" style="animation-delay: 0.1s;">
+                <span class="question-emoji">😊</span>
+                <span class="question-text">What's your favorite memory with me?</span>
+                <div class="answer-text">Every moment with you is my favorite, but I especially love those quiet moments where we just look into each other's eyes and don't need to say anything. Those moments are pure magic.</div>
+            </div>
+            <div class="question-item fade-in" style="animation-delay: 0.2s;">
+                <span class="question-emoji">💕</span>
+                <span class="question-text">When did you know you loved me?</span>
+                <div class="answer-text">The moment I saw your smile, I knew you were different. But I fell completely in love the first time you laughed and I realized I never want to hear anything else for the rest of my life.</div>
+            </div>
+            <div class="question-item fade-in" style="animation-delay: 0.3s;">
+                <span class="question-emoji">🌟</span>
+                <span class="question-text">What do you love most about me?</span>
+                <div class="answer-text">Your heart. The way you care so deeply about everyone around you. Your strength, your kindness, your beautiful spirit. You make me want to be better every single day.</div>
+            </div>
+            <div class="question-item fade-in" style="animation-delay: 0.4s;">
+                <span class="question-emoji">🌈</span>
+                <span class="question-text">Where do you see us in the future?</span>
+                <div class="answer-text">Growing old together, creating a lifetime of beautiful memories, supporting each other through everything, and loving harder with each passing day. Forever with you is my happiest ending.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALITIES SECTION -->
+    <section class="qualities">
+        <h2 class="section-title fade-in">Your Beautiful Qualities ✨</h2>
+        <div class="qualities-grid">
+            <div class="quality-badge bounce-in" style="animation-delay: 0.05s;">
+                <div class="quality-text">Compassionate</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.1s;">
+                <div class="quality-text">Intelligent</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.15s;">
+                <div class="quality-text">Beautiful</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.2s;">
+                <div class="quality-text">Brave</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.25s;">
+                <div class="quality-text">Funny</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.3s;">
+                <div class="quality-text">Kind</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.35s;">
+                <div class="quality-text">Talented</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.4s;">
+                <div class="quality-text">Strong</div>
+            </div>
+            <div class="quality-badge bounce-in" style="animation-delay: 0.45s;">
+                <div class="quality-text">Genuine</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THINGS I LOVE SECTION -->
+   <section class="things-love">
+    <h2 class="section-title fade-in">100 Things I Love About You 💖</h2>
+
+    <div class="love-items">
+
+        <div class="love-item scale-in" style="animation-delay: 0.05s;">
+            <div class="love-item-number">01</div>
+            <div class="love-item-text">Your infectious smile that lights up my entire world</div>
+        </div>
+
+        <div class="love-item scale-in" style="animation-delay: 0.1s;">
+            <div class="love-item-number">02</div>
+            <div class="love-item-text">The way you laugh at my terrible jokes</div>
+        </div>
+
+        <div class="love-item scale-in" style="animation-delay: 0.15s;">
+            <div class="love-item-number">03</div>
+            <div class="love-item-text">How you care for others so deeply and genuinely</div>
+        </div>
+
+        <div class="love-item scale-in" style="animation-delay: 0.2s;">
+            <div class="love-item-number">04</div>
+            <div class="love-item-text">Your beautiful eyes that see straight into my soul</div>
+        </div>
+
+        <div class="love-item scale-in" style="animation-delay: 0.25s;">
+            <div class="love-item-number">05</div>
+            <div class="love-item-text">The way you make me feel safe and loved</div>
+        </div>
+
+        <div class="love-item scale-in" style="animation-delay: 0.3s;">
+            <div class="love-item-number">06</div>
+            <div class="love-item-text">Your strength and resilience through everything</div>
+        </div>
+
+        <div class="love-item scale-in"><div class="love-item-number">07</div><div class="love-item-text">Your kind heart and gentle soul</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">08</div><div class="love-item-text">The way you always understand me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">09</div><div class="love-item-text">Your cute little habits that make me smile</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">10</div><div class="love-item-text">How you support me in every situation</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">11</div><div class="love-item-text">Your voice that instantly calms my heart</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">12</div><div class="love-item-text">The way you make ordinary moments special</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">13</div><div class="love-item-text">Your honesty and pure intentions</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">14</div><div class="love-item-text">How you always know how to cheer me up</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">15</div><div class="love-item-text">Your adorable sleepy face</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">16</div><div class="love-item-text">The way your hand fits perfectly in mine</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">17</div><div class="love-item-text">Your passion for the things you love</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">18</div><div class="love-item-text">How you inspire me to become better</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">19</div><div class="love-item-text">Your patience with me even on difficult days</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">20</div><div class="love-item-text">The way you look at me with love in your eyes</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">21</div><div class="love-item-text">Your random cute messages during the day</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">22</div><div class="love-item-text">How comfortable everything feels with you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">23</div><div class="love-item-text">Your confidence and determination</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">24</div><div class="love-item-text">The warmth of your hugs</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">25</div><div class="love-item-text">Your sense of humor that matches mine</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">26</div><div class="love-item-text">The way you remember little details about me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">27</div><div class="love-item-text">Your loyalty and commitment</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">28</div><div class="love-item-text">How beautiful you look without even trying</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">29</div><div class="love-item-text">Your positive energy that brightens my day</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">30</div><div class="love-item-text">The way you listen when I need to talk</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">31</div><div class="love-item-text">Your cute reactions to surprises</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">32</div><div class="love-item-text">How you always make me feel important</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">33</div><div class="love-item-text">Your beautiful mind and intelligence</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">34</div><div class="love-item-text">The way you believe in me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">35</div><div class="love-item-text">Your little jealous moments that are secretly cute</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">36</div><div class="love-item-text">How you make my bad days better</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">37</div><div class="love-item-text">Your sweet good morning texts</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">38</div><div class="love-item-text">The way your happiness makes me happy too</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">39</div><div class="love-item-text">Your natural beauty inside and out</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">40</div><div class="love-item-text">How every memory with you feels magical</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">41</div><div class="love-item-text">Your caring nature toward everyone around you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">42</div><div class="love-item-text">The way you trust me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">43</div><div class="love-item-text">Your cute smile when you are shy</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">44</div><div class="love-item-text">How you always stay by my side</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">45</div><div class="love-item-text">Your beautiful dreams and ambitions</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">46</div><div class="love-item-text">The way you say my name</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">47</div><div class="love-item-text">Your excitement over little things</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">48</div><div class="love-item-text">How peaceful I feel around you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">49</div><div class="love-item-text">Your late-night conversations with me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">50</div><div class="love-item-text">The way you always care about my feelings</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">51</div><div class="love-item-text">Your cute expressions when you are excited</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">52</div><div class="love-item-text">How genuine your love feels</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">53</div><div class="love-item-text">Your beautiful soul that shines so brightly</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">54</div><div class="love-item-text">The comfort I find in your presence</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">55</div><div class="love-item-text">Your ability to make me laugh endlessly</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">56</div><div class="love-item-text">How you never give up on us</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">57</div><div class="love-item-text">Your beautiful smile after hearing compliments</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">58</div><div class="love-item-text">The way you make life feel easier</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">59</div><div class="love-item-text">Your sweet and loving personality</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">60</div><div class="love-item-text">How every day with you feels meaningful</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">61</div><div class="love-item-text">Your adorable laugh that I never get tired of</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">62</div><div class="love-item-text">The way you always motivate me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">63</div><div class="love-item-text">Your honesty even in difficult situations</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">64</div><div class="love-item-text">How beautiful your heart truly is</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">65</div><div class="love-item-text">The way you make me feel understood</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">66</div><div class="love-item-text">Your little acts of kindness</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">67</div><div class="love-item-text">How safe I feel when I’m with you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">68</div><div class="love-item-text">Your beautiful energy and vibe</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">69</div><div class="love-item-text">The way you brighten every room you enter</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">70</div><div class="love-item-text">Your supportive words when I need them most</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">71</div><div class="love-item-text">How perfectly you fit into my life</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">72</div><div class="love-item-text">Your beautiful way of thinking</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">73</div><div class="love-item-text">The way you look at me when I talk</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">74</div><div class="love-item-text">Your endless love and affection</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">75</div><div class="love-item-text">How much effort you put into everything</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">76</div><div class="love-item-text">Your beautiful imperfections that make you perfect</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">77</div><div class="love-item-text">The peace I feel while talking to you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">78</div><div class="love-item-text">Your ability to understand my silence</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">79</div><div class="love-item-text">The happiness you bring into my life</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">80</div><div class="love-item-text">Your cute little random thoughts</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">81</div><div class="love-item-text">The way you always stay true to yourself</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">82</div><div class="love-item-text">Your sweet compliments that melt my heart</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">83</div><div class="love-item-text">How beautiful you look when you are happy</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">84</div><div class="love-item-text">Your endless patience and understanding</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">85</div><div class="love-item-text">The way you always make time for me</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">86</div><div class="love-item-text">Your loyalty that gives me peace</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">87</div><div class="love-item-text">How every moment with you feels unforgettable</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">88</div><div class="love-item-text">Your cute reactions when you are flustered</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">89</div><div class="love-item-text">The warmth of your love</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">90</div><div class="love-item-text">Your ability to make me smile instantly</div></div>
+
+        <div class="love-item scale-in"><div class="love-item-number">91</div><div class="love-item-text">The way you make life more beautiful</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">92</div><div class="love-item-text">Your caring words during hard times</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">93</div><div class="love-item-text">How deeply and sincerely you love</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">94</div><div class="love-item-text">Your beautiful smile in photos</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">95</div><div class="love-item-text">The way you make me feel complete</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">96</div><div class="love-item-text">Your beautiful soul that matches mine</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">97</div><div class="love-item-text">How lucky I feel to have you</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">98</div><div class="love-item-text">The way you make every day worth living</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">99</div><div class="love-item-text">Your love that changed my life forever</div></div>
+        <div class="love-item scale-in"><div class="love-item-number">100</div><div class="love-item-text">Simply because you are you ❤️</div></div>
+
+    </div>
+</section>
+
+    
+    <!-- LETTER WRITING SECTION -->
+    <section class="letter-writing">
+        <h2 class="section-title fade-in">A Letter Just For You 💌</h2>
+        <div class="letter-prompt-container fade-in" style="animation-delay: 0.2s;">
+            <h3>Dear My Love,</h3>
+            <div class="letter-prompt-text">
+                I'm writing this because words can never fully express how you make me feel. Every day with you is a blessing I don't deserve but will cherish forever. You are my greatest adventure, my deepest love, and my forever dream.
+                <br><br>
+                I promise to spend the rest of my life making you smile, supporting your dreams, and loving you more with each passing day. Thank you for being my person, my love, my everything.
+            </div>
+            <div class="letter-signature">Forever yours,<br>With all my love 💕</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="heart-float footer-heart-1">💖</div>
+        <div class="heart-float footer-heart-2">💖</div>
+        <div class="heart-float footer-heart-3">💖</div>
+        <p>Made with love, regret, and hope 💖</p>
+    </footer>
+
+
+    <script>
+        // Cursor Glow Effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = (e.clientX - 20) + 'px';
+            cursorGlow.style.top = (e.clientY - 20) + 'px';
+        });
+
+        // Scroll-triggered animations with Intersection Observer
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Check if the element already has an animation class
+                    const animationClass = Array.from(entry.target.classList).find(cls => 
+                        ['fade-in', 'slide-in-left', 'slide-in-right', 'scale-in', 'bounce-in'].includes(cls)
+                    );
+                    
+                    if (animationClass && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        // Trigger animation by resetting and re-applying
+                        entry.target.style.animation = 'none';
+                        setTimeout(() => {
+                            entry.target.style.animation = '';
+                        }, 10);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .bounce-in, .reason-card, .memory-card, .promise-card').forEach(el => {
+            animationObserver.observe(el);
+        });
+
+        // Question item click handler
+        document.querySelectorAll('.question-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll to section on button click
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Forgiveness Handler
+        function handleForgiveness(forgave) {
+            if (forgave) {
+                triggerConfetti();
+                createHeartExplosion();
+                showNotification('Thank you for forgiving me! 💖');
+            } else {
+                const btn = event.target;
+                btn.style.transform = 'translate(' + (Math.random() * 100 - 50) + 'px, ' + (Math.random() * 100 - 50) + 'px)';
+                setTimeout(() => {
+                    btn.style.transform = 'translate(0, 0)';
+                }, 300);
+            }
+        }
+
+        // Confetti Effect
+        function triggerConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = -10 + 'px';
+                confetti.innerHTML = ['💖', '✨', '🌸', '💕'][Math.floor(Math.random() * 4)];
+                confetti.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                document.body.appendChild(confetti);
+                
+                const duration = Math.random() * 2 + 2;
+                const xDest = (Math.random() - 0.5) * window.innerWidth;
+                confetti.style.animation = `fall ${duration}s linear forwards`;
+                
+                setTimeout(() => confetti.remove(), duration * 1000);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(${window.innerHeight + 50}px) translateX(var(--x, 0)) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Heart Explosion
+        function createHeartExplosion() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = window.innerWidth / 2 + 'px';
+                heart.style.top = window.innerHeight / 2 + 'px';
+                heart.style.fontSize = '2rem';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '2000';
+                document.body.appendChild(heart);
+                
+                const angle = (i / 20) * Math.PI * 2;
+                const velocity = 5;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                let x = window.innerWidth / 2;
+                let y = window.innerHeight / 2;
+                
+                const animate = () => {
+                    x += vx;
+                    y += vy;
+                    heart.style.left = x + 'px';
+                    heart.style.top = y + 'px';
+                    heart.style.opacity = Math.max(0, parseFloat(heart.style.opacity || 1) - 0.02);
+                    
+                    if (parseFloat(heart.style.opacity) > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        heart.remove();
+                    }
+                };
+                animate();
+            }
+        }
+
+        // Notification
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.textContent = message;
+            notif.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+                color: white;
+                padding: 30px 50px;
+                border-radius: 50px;
+                font-size: 1.3rem;
+                font-weight: 600;
+                z-index: 3000;
+                animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
+            `;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 2000);
+        }
+
+        // Final Surprise
+        function triggerFinalSurprise() {
+            triggerConfetti();
+            createHeartExplosion();
+            setTimeout(() => {
+                document.getElementById('finalModal').classList.add('active');
+            }, 500);
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('finalModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('finalModal').addEventListener('click', (e) => {
+            if (e.target.id === 'finalModal') {
+                closeModal();
+            }
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero::before');
+            if (hero) {
+                document.querySelector('.hero').style.backgroundPosition = `0 ${scrolled * 0.5}px`;
+            }
+        });
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
